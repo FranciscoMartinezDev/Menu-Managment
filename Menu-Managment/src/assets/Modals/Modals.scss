@@ -1,0 +1,296 @@
+$base-color: #E0E1DD;
+$primary-color: #778DA9;
+$secondary-color: #415A77;
+$thirth-color: #1B263B;
+$fourth-color: #0D1B2A;
+
+$succes-base-color: #94D2BD;
+$succes-primary-color: #0A9396;
+$succes-secondary-color: #005F73;
+$succes-thirth-color: #001219;
+
+$warning-primary-color: #EE9B00;
+
+$danger-primary-color: #AE2012;
+$danger-secondary-color: #9B2226;
+
+$almost-primary-color: #CA6702;
+$almost-secondary-color: #BB3E03;
+
+
+.modal-ingredients,
+.modal-includes,
+.modal-sizes {
+    height: 450px;
+
+    .body {
+        overflow: auto;
+    }
+
+    footer {
+        border-top: 1px solid gray;
+
+        button {
+            background-color: $succes-primary-color;
+            color: $base-color;
+
+            &:hover {
+                background-color: $succes-secondary-color;
+            }
+        }
+    }
+}
+
+
+.modal-sizes,
+.modal-ingredients {
+
+    .size,
+    .ingredient {
+        border-bottom: 1px solid gray;
+        padding-block: 10px;
+        overflow-x: hidden;
+        position: relative;
+
+        .btn-close {
+            position: absolute;
+            top: 5px;
+            right: 0;
+            width: 25px;
+            height: 25px;
+            color: gray;
+            border-radius: 0;
+        }
+
+        input {
+            border: 1px solid gray;
+        }
+
+        label {
+            color: gray;
+        }
+
+        .input-content {
+            display: flex;
+            width: 200%;
+            transition: .2s ease-in-out;
+
+
+            button {
+                border: 1px solid gray;
+                border-radius: 0;
+                border-top-right-radius: 7px;
+                border-bottom-right-radius: 7px;
+                color: gray;
+            }
+
+            &.active {
+                transform: translateX(-50%);
+                transition: .2s ease-in-out;
+            }
+        }
+    }
+}
+
+
+.modal-includes {
+    .search {
+        position: relative;
+
+        input {
+            border: 1px solid gray;
+        }
+
+        ul {
+            margin-top: 10px;
+            border: 1px solid gray;
+            position: absolute;
+            width: 100%;
+            background-color: white;
+            z-index: 2;
+
+            li {
+                list-style: none;
+                height: 40px;
+                border-bottom: 1px solid gray;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                color: gray;
+                transition: .2s;
+
+                &:hover {
+                    background-color: lightblue;
+                    transition: .2s;
+                }
+
+                &.active {
+                    background-color: lightblue;
+                }
+            }
+
+            li:last-child {
+                border: none;
+            }
+        }
+    }
+
+    .include-list {
+        border: 1px solid gray;
+        margin-top: 20px;
+        height: calc(100% - 70px);
+        overflow: auto;
+
+        .include-item {
+            border-bottom: 1px solid gray;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding-inline: 20px;
+
+            span {
+                font-weight: 500;
+                color: gray;
+            }
+
+            button {
+                margin-left: auto;
+                background-color: $danger-primary-color;
+                color: $base-color;
+                height: 40px;
+                width: 40px;
+                font-size: 20px;
+
+                &:hover {
+                    background-color: $danger-secondary-color;
+                }
+            }
+        }
+    }
+}
+
+.modal-menu-item {
+    header {
+        padding: 5px !important;
+
+        button {
+            color: white;
+        }
+
+        img {
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            object-fit: cover;
+        }
+    }
+
+    .body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "namePrice includes"
+            "detail detail"
+            "size size";
+
+        h2 {
+            font-weight: 600;
+        }
+
+        .name-price {
+            grid-area: namePrice;
+        }
+
+        .includes {
+            grid-area: includes;
+        }
+
+        .detail {
+            grid-area: detail;
+            border-bottom: 1px solid gray;
+            margin-top: 20px;
+        }
+
+        .sizes {
+            grid-area: size;
+            padding-block: 10px;
+            border-bottom: 1px solid gray;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+
+            button {
+                background-color: $almost-primary-color;
+                color: white;
+                flex: 1;
+                height: 35px;
+
+                &:hover {
+                    background-color: $almost-secondary-color;
+                }
+            }
+        }
+    }
+
+    footer {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            background-color: $succes-primary-color;
+            color: white;
+
+            &:hover {
+                background-color: $succes-secondary-color;
+            }
+        }
+    }
+}
+
+.modal-secure-question {
+    header {
+        background-color: $almost-secondary-color;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: white;
+        border: none;
+    }
+
+
+    div.body {
+        display: flex;
+        flex-direction: column;
+
+        p {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .button-group {
+            margin-top: 20px;
+            margin-left: auto;
+
+            button {
+                width: 70px;
+                margin-left: 20px;
+
+                &:hover {
+                    background-color: lightblue;
+                }
+            }
+
+            button+button {
+                background-color: $almost-secondary-color;
+                color: white;
+
+                &:hover {
+                    background-color: $almost-primary-color;
+                }
+            }
+        }
+    }
+}

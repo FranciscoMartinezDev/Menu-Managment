@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Products {
+  IdProduct                   Int            @id @default(autoincrement())
+  Name                        String         @db.VarChar(100)
+  Ingredients                 Json           @db.Json()
+  Customizable                Boolean
+  Size                        Json           @db.Json()
+  Price                       Float
+  Include                     Json?          @db.Json()
+  Availability                Boolean?       @db.Boolean()
+  productGroupsId Int?
+  ProductGroups               ProductGroups? @relation(fields: [productGroupsId], references: [IdProductGroup])
+}
+
+model ProductGroups {
+  IdProductGroup Int        @id @default(autoincrement())
+  Name           String     @db.VarChar(100)
+  Products       Products[]
+}
